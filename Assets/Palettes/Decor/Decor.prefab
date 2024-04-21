@@ -7312,7 +7312,7 @@ Transform:
   m_Children:
   - {fileID: 4047448260402239708}
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 180, y: 180, z: 0}
 --- !u!156049354 &3027982461005520106
 Grid:
   m_ObjectHideFlags: 0
@@ -7325,7 +7325,7 @@ Grid:
   m_CellGap: {x: 0, y: 0, z: 0}
   m_CellLayout: 0
   m_CellSwizzle: 0
---- !u!114 &8552889302343741597
+--- !u!114 &1635821486114604774
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
