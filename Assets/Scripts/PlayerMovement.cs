@@ -12,7 +12,7 @@ public class PlayerMovement : MonoBehaviour
 
     // Variables to play with
     public float speed = 2.0f;
-    public float horizMovement;
+    public float horizMovement; // = 1, -1, or 0 Either idle, left, or right
 
 
 
@@ -27,10 +27,13 @@ public class PlayerMovement : MonoBehaviour
     private void Update()
     {
         // check if the player has input movement
+        horizMovement = Input.GetAxis("Horizontal");
     }
     // handles running the physics
     private void FixedUpdate()
     {
         // move the player's character left and right
+        Debug.Log(rb2D.velocity.y);
+        rb2D.velocity = new Vector2(horizMovement*speed,rb2D.velocity.y);
     }
 }
