@@ -381,13 +381,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f68424465755a74ca413f1058f76ec1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jumpforce: 3
+  jumpforce: 1.75
+  jumpTime: 0.25
   groundCheck: {fileID: 1481329294}
   radOCircle: 0.03
   whatIsGround:
     serializedVersion: 2
     m_Bits: 8
-  grounded: 0
+  grounded: 1
 --- !u!1 &732791034
 GameObject:
   m_ObjectHideFlags: 0
