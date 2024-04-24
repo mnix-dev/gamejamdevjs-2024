@@ -10,8 +10,12 @@ public class PlayerJump : MonoBehaviour
 {
     // force, apply force
     [Header("Jump Details")]
-    public float jumpforce;
-    public float jumpTime;
+    [SerializeField] protected float jumpForce = 1.75f;
+    [SerializeField] protected float jumpTime = .25f;
+    [SerializeField] protected float jumpForceIncrement = 0.0000005f; // Define the jump force increment value
+    [SerializeField] protected float jumpTimeIncrement = 0.5f; // Define the jump time increment value
+    [SerializeField] protected float maxJumpForce = 2.0f;
+[SerializeField] protected float baseJumpIncrement = 0.1f;
     private float jumpTimeCounter;
     private bool stoppedJumping;
 
@@ -24,11 +28,6 @@ public class PlayerJump : MonoBehaviour
     [Header("Components")]
     private Rigidbody2D rb;
     private Animator anim;
-
-    //  anim.SetBool("falling", true);
-    //  anim.SetBool("falling", false);
-    //  anim.SetTrigger("jump");
-    //  anim.ResetTrigger("jump");
     private void Start()
     {
         jumpTimeCounter = jumpTime;
@@ -52,7 +51,17 @@ public class PlayerJump : MonoBehaviour
         }
         if (Input.GetButtonDown("Jump") && grounded)
         {
-            rb.velocity = new Vector2(rb.velocity.x, jumpforce);
+            rb.velocity = new Vector2(rb.velocity.x, jumpForce);
+            jumpForce += jumpForceIncrement; // Increase jumpForce each time a jump is performed
+            // If jumpForce has reached maxJumpForce
+        if (jumpForce >= maxJumpForce)
+        {
+            // Increase base jump value and reset jumpForce
+            jumpForce = 1.0f + baseJumpIncrement;
+            baseJumpIncrement += 0.1f;
+        }
+            jumpForce += jumpForceIncrement; // Increase jumpForce each time a jump is performed
+            jumpTimeCounter += jumpTimeIncrement; // Increase jumpTime each time a jump is performed
             stoppedJumping = false;
             // tell animator to play jump animation
             anim.SetTrigger("jumping");
@@ -61,7 +70,7 @@ public class PlayerJump : MonoBehaviour
         // if jump button is held down
         if (Input.GetButton("Jump") && !stoppedJumping && (jumpTimeCounter > 0))
         {
-            rb.velocity = new Vector2(rb.velocity.x, jumpforce);
+            rb.velocity = new Vector2(rb.velocity.x, jumpForce);
             jumpTimeCounter -= Time.deltaTime;
             // tell animator to play jump animation
             anim.SetTrigger("jumping");
