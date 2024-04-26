@@ -133,6 +133,7 @@ GameObject:
   m_Component:
   - component: {fileID: 190799320}
   - component: {fileID: 190799319}
+  - component: {fileID: 190799321}
   m_Layer: 0
   m_Name: Auto Follow Cam
   m_TagString: Untagged
@@ -195,6 +196,21 @@ Transform:
   - {fileID: 442973733}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &190799321
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 190799318}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 44d70cc20219cd84593f67d248eafe36, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Offset: {x: 0, y: 0, z: 0}
+  m_ApplyAfter: 1
+  m_PreserveComposition: 1
 --- !u!1 &442973732
 GameObject:
   m_ObjectHideFlags: 3
@@ -8769,6 +8785,7 @@ GameObject:
   - component: {fileID: 669286432}
   - component: {fileID: 669286436}
   - component: {fileID: 669286437}
+  - component: {fileID: 669286438}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -8985,7 +9002,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 1
-  speedIncrement: 0.000004
+  speedIncrement: 0.001
 --- !u!114 &669286437
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9000,9 +9017,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   jumpForce: 1.75
   jumpTime: 0.25
-  jumpForceIncrement: 0.009
+  jumpForceIncrement: 0.09
   jumpTimeIncrement: 0.0025
-  maxJumpForce: 2
+  maxJumpForce: 20
   baseJumpIncrement: 0.1
   groundCheck: {fileID: 1481329294}
   radOCircle: 0.03
@@ -9010,6 +9027,18 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 8
   grounded: 0
+--- !u!114 &669286438
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 669286426}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ddcec31ff3799245b55754e0b182a4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &732791034
 GameObject:
   m_ObjectHideFlags: 0
